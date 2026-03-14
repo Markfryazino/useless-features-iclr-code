@@ -1,0 +1,53 @@
+method: grid
+program: train.py
+parameters:
+    seed:
+        value: 0
+    world:
+        value: othello
+    world.size:
+        value: 8
+    world.max_moves:
+        value: 60
+    model.hidden_dim:
+        value: 256
+    model.num_layers:
+        value: 6
+    model.n_head:
+        value: 4
+    train_dataset_size:
+        value: -1
+    eval_dataset_size:
+        value: 20480
+    deduplication_size:
+        value: null
+    batch_size:
+        value: 1024
+    num_steps:
+        value: 5000
+    probe_interval:
+        value: 1000
+    eval_interval:
+        value: 1000
+    dataset_path:
+        value: data/othello_8x8
+    autogenerate_verify_probes:
+        value: true
+    autogenerate_coord_names:
+        value: ['(2,2)', '(2,3)', '(2,4)', '(2,5)', '(3,2)', '(3,3)', '(3,4)', '(3,5)', '(4,2)', '(4,3)', '(4,4)', '(4,5)', '(5,2)', '(5,3)', '(5,4)', '(5,5)']
+    autogenerate_layer_indices:
+        value: [1, 2, 3, 4, 5, 6]
+    autogenerate_sequence_indices:
+        values: [[4], [8], [12], [16], [20], [24], [28], [32], [36], [40], [44], [48], [52], [56]]
+    grad_track_feature_types:
+        value: true
+
+entity: INSERT YOURS
+project: INSERT YOURS
+name: othello_grad_tracking
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - ${args_no_hyphens}

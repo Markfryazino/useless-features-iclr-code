@@ -1,0 +1,5 @@
+_target_: src.samplers.MajSampler
+seed: ${seed}
+input_size: 10
+vocab_size: 3
+output_size: 10

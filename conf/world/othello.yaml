@@ -1,0 +1,4 @@
+_target_: src.samplers.OthelloSampler
+seed: ${seed}
+max_moves: 60
+size: 8

@@ -1,0 +1,6 @@
+_target_: src.samplers.cond_maj.CondMajSampler
+seed: ${seed}
+input_size: 10
+vocab_size: 3
+output_size: 10
+exclude0: false

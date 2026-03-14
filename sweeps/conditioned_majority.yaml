@@ -1,0 +1,48 @@
+method: grid
+program: train.py
+parameters:
+    seed:
+        min: 0
+        max: 9
+    world:
+        value: cond_maj
+
+    model.hidden_dim:
+        value: 128
+    model.n_head:
+        value: 4
+    model.split_index:
+        values: [null, 10]
+    model.myopic:
+        values: [false, true]
+
+    train_dataset_size:
+        value: 102400
+    eval_dataset_size:
+        value: 10240
+    deduplication_size:
+        value: 10
+    dataset_path:
+        value: data/conditioned_majority
+
+    num_steps:
+        value: 3000
+
+    autogenerate_verify_probes:
+        value: true
+    autogenerate_coord_names:
+        value: ["prev_is_<0>"]
+    autogenerate_sequence_indices:
+        value: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    autogenerate_layer_indices:
+        value: [1, 2]
+
+entity: INSERT YOURS
+project: INSERT YOURS
+name: cond_maj_grad_tracking
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - ${args_no_hyphens} 

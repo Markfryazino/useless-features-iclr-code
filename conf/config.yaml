@@ -1,0 +1,52 @@
+defaults:
+    - world: maj
+    - _self_
+
+model:
+    _target_:         src.model.get_hf_model
+    split_index:      null
+    hidden_dim:       32
+    max_len:          null
+    vocab_size:       null
+    num_layers:       2
+    n_head:           2
+    feedforward_dim:  ${multiply:${model.hidden_dim},4}
+    myopic:           False
+    eager_attn:       False
+
+seed: 0
+device: cuda
+train_dataset_size: 10000
+eval_dataset_size: 100
+deduplication_size: null
+sharding_size: null
+
+wandb: True
+wandb_name: null
+
+lr: 0.001
+batch_size: 256
+num_steps: 10000
+log_interval: 10
+probe_interval: 500
+eval_interval: 500
+
+probe_alpha: 1.0
+
+verify_probes: [] # a list of tuples (coordinate name, layer, sequence index)
+autogenerate_verify_probes: False
+autogenerate_coord_names: []
+autogenerate_sequence_indices: []
+autogenerate_layer_indices: []
+grad_track_feature_types: False
+
+dataset_path: null
+only_save_dataset: False
+
+model_save_path: null
+
+hydra:
+    job:
+        chdir: True
+    run:
+        dir: ./outputs/${now:%Y-%m-%d}/${now:%H-%M-%S.%f}

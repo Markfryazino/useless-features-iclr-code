@@ -1,0 +1,5 @@
+_target_: src.samplers.language.LanguageSampler
+seed: ${seed}
+max_len: 64
+dataset_path: null
+tokenizer_path: "roneneldan/TinyStories-1M"
